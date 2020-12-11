@@ -1,0 +1,15 @@
+*.lcov
+*.log
+*.sw[nop]
+*~
+.nyc_output
+.project
+.settings
+.vscode
+TAGS
+coverage
+node_modules
+reports
+tests_output
+logs
+*.DS_Store

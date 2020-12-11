@@ -1,0 +1,11 @@
+{
+  "env": {
+    "mocha": true
+  },
+  "globals": {
+    "$": true,
+    "$$": true,
+    "browser": true,
+    "expect": true
+  }
+}

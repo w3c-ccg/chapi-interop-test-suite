@@ -1,0 +1,58 @@
+name: CI
+
+on: [pull_request]
+
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    strategy:
+      matrix:
+        node-version: [14.x]
+    steps:
+      - uses: actions/checkout@v2
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v1
+        with:
+          node-version: ${{ matrix.node-version }}
+      - name: Cache Dependencies
+        uses: c-hive/gha-npm-cache@v1
+      - name: Install Dependencies
+        run: npm install
+      - name: Run ESLint
+        run: npm run lint
+
+  e2e:
+    needs: [lint]
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version: [14.x]
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v1
+        with:
+          node-version: ${{ matrix.node-version }}
+      - name: Cache Dependencies
+        uses: c-hive/gha-npm-cache@v1
+      - name: Install Dependencies
+        uses: ianwalter/puppeteer-container@v4.0.0
+        with:
+          args: npm install
+      - name: Test
+        uses: ianwalter/puppeteer-container@v4.0.0
+        with:
+          args: npm run test:ci
+      - name: Generate Report
+        if: ${{ always() }}
+        uses: ianwalter/puppeteer-container@v4.0.0
+        with:
+          args: npm run report
+      - name: Upload Artifacts
+        if: ${{ always() }}
+        uses: actions/upload-artifact@v1
+        with:
+          name: reports
+          path: reports
