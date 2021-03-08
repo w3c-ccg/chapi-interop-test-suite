@@ -14,6 +14,9 @@ Demonstrate the issuance and verification of a Permanent Resident Card.
 
 Demonstrate the issuance and verification of a Certified Mill Test Report.
 
+## Reports
+
+Reports are generated upon new commits to the main branch. To view more click [here](./docs/reports/index.md).
 
 ## Running Locally
 ```sh
