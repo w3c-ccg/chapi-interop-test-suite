@@ -9,7 +9,7 @@
 TAGS
 coverage
 node_modules
-reports
 tests_output
+reports/
 logs
 *.DS_Store

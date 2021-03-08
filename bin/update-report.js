@@ -13,11 +13,8 @@ async function start() {
   const indexFilePath = path.join(dir, 'index.md');
   await fs.unlink(indexFilePath);
 
-  const heading = '# Test Reports';
+  const heading = '# Reports';
   await fs.writeFile(indexFilePath, `${heading}\n\n`, 'ascii');
-
-  const description = 'Below you will find a compiled list of all test runs.';
-  await fs.appendFile(indexFilePath, `${description}\n\n`, 'ascii');
 
   for(let i = htmlFiles.length - 1; i >= 0; i--) {
     const filename = htmlFiles[i];
@@ -31,7 +28,6 @@ async function start() {
     await fs.appendFile(indexFilePath, `${reportHeading}\n\n`, 'ascii');
     await fs.appendFile(indexFilePath, `${fileDescription}\n\n`, 'ascii');
   }
-  console.log(htmlFiles);
 }
 
 (async () => {
