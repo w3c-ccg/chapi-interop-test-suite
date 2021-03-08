@@ -10,7 +10,7 @@
     "test:ci": "wdio wdio.ci.conf.js",
     "test:sauce": "wdio wdio.sauce.conf.js",
     "lint": "eslint .",
-    "report": "rm -rf reports/mochawesome-report && cd reports && xunit-viewer -r . && marge wdio-ma-merged.json --inline -f \"report-$(date -u --iso-8601=seconds).html\" --reportTitle 'CHAPI Interop Test Suite Results' && mv mochawesome-report/report-*.html ../docs/reports"
+    "report": "rm -rf reports/mochawesome-report && cd reports && xunit-viewer -r . && marge wdio-ma-merged.json --inline -f \"report-$(date -u --iso-8601=seconds).html\" --reportTitle 'CHAPI Interop Test Suite Results' && mv mochawesome-report/report-*.html ../docs/reports && node ../bin/update-report.js"
   },
   "repository": {
     "type": "git",

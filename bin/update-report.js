@@ -11,7 +11,13 @@ async function start() {
     .sort((a, b) => a - b);
 
   const indexFilePath = path.join(dir, 'index.md');
-  await fs.unlink(indexFilePath);
+  try {
+    await fs.unlink(indexFilePath);
+  } catch(e) {
+    if(!e.message.includes('ENOENT')) {
+      throw e;
+    }
+  }
 
   const heading = '# Reports';
   await fs.writeFile(indexFilePath, `${heading}\n\n`, 'ascii');
