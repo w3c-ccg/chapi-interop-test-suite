@@ -3,7 +3,7 @@ name: Main
 on:
   push:
     branches:
-      - "main"
+      - "update-docs"
 
 jobs:
   lint:
