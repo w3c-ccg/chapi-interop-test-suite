@@ -44,7 +44,7 @@ npm test
 
 You may contribute to this test suite by submitting pull requests here:
 
-https://github.com/digitalbazaar/chapi-interop-test-suite/
+https://github.com/w3c-ccg/chapi-interop-test-suite/
 
 ## CHAPI Resources
 * [Credential Handler API Specification](https://w3c-ccg.github.io/credential-handler-api/)
