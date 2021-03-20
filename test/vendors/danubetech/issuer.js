@@ -1,6 +1,7 @@
 'use strict';
 
 const constants = require('./constants');
+const helpers = require('./helpers');
 
 const FLOW_URLS = constants.urls;
 
@@ -14,7 +15,14 @@ exports.getUrl = async ({key}) => {
   return urls.issuer;
 };
 
-exports.authenticate = async () => {
+exports.setup = async ctx => {
+  await helpers.pickupVaxCert(ctx);
+};
+
+exports.authenticate = async ctx => {
+  await helpers.loginToMyUSCIS(ctx);
+  await helpers.clickPresentVaxCert(ctx);
+  await helpers.presentVaxCert(ctx);
   const authenticateBtn = await $('button*=Select Wallet');
   await authenticateBtn.waitForClickable();
   await authenticateBtn.click();
@@ -27,6 +35,9 @@ exports.issue = async () => {
 };
 
 exports.finish = async () => {
-  const successNotification = await $('.notification-box-sucess');
-  await successNotification.waitForDisplayed();
+  const message = 'Permanent Resident Card successfully issued to your wallet.';
+  const successMessage = await $(`div*=${message}`);
+  await successMessage.waitForExist();
 };
+
+/*************************** Helper functions ******************************/

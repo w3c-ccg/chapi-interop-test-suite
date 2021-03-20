@@ -26,7 +26,7 @@ api.getVendors = ({vendors, scenarioKey}) => {
     .filter(_validateWalletVendor)
     .filter(vendor => {
       if(!(scenarioConfig && scenarioConfig.walletVendors)) {
-        return true;
+        return false;
       }
       if(scenarioConfig.walletVendors === 'all') {
         return true;
@@ -44,7 +44,7 @@ api.getVendors = ({vendors, scenarioKey}) => {
     .filter(_validateIssuerVendor)
     .filter(vendor => {
       if(!(scenarioConfig && scenarioConfig.issuerVendors)) {
-        return true;
+        return false;
       }
       if(scenarioConfig.issuerVendors === 'all') {
         return true;
@@ -62,7 +62,7 @@ api.getVendors = ({vendors, scenarioKey}) => {
     .filter(_validateVerifierVendor)
     .filter(vendor => {
       if(!(scenarioConfig && scenarioConfig.verifierVendors)) {
-        return true;
+        return false;
       }
       if(scenarioConfig.verifierVendors === 'all') {
         return true;

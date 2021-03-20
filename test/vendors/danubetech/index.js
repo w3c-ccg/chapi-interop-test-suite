@@ -17,7 +17,7 @@ module.exports = {
   verifier: {
     api: verifierApi,
     meta: {
-      supportedFlows: ['2020-05-07-dhs-prc']
+      supportedFlows: ['2020-05-07-dhs-prc', '2021-03-15-svip-vaxcert']
     }
   }
 };

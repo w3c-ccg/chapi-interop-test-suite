@@ -39,9 +39,9 @@ walletVendors.forEach(walletVendor => {
         const ctx = {
           ...BASE_CTX,
           email: `${uuid()}@example.com`,
-          walletVendor: walletVendor.meta.name,
-          issuerVendor: issuerVendor.meta.name,
-          verifierVendor: verifierVendor.meta.name,
+          walletVendor,
+          issuerVendor,
+          verifierVendor,
         };
 
         // runs once before the first test in this block
@@ -63,6 +63,9 @@ walletVendors.forEach(walletVendor => {
 
         it('issues a PRC credential', async () => {
           // 1. Navigate to Issuer Website
+          if(issuerVendor.issuer.api.setup) {
+            await issuerVendor.issuer.api.setup(ctx);
+          }
           const url = await issuerVendor.issuer.api.getUrl(ctx);
           await browser.newWindow(url);
 

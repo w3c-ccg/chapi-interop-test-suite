@@ -21,3 +21,7 @@ constants.urls.set('2020-05-07-dhs-prc', {
 constants.urls.set('2020-05-07-dhs-cmtr', {
   wallet: WALLET_URL
 });
+
+constants.urls.set('2021-03-15-svip-vaxcert', {
+  wallet: WALLET_URL
+});

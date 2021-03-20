@@ -17,6 +17,11 @@ module.exports = {
       walletVendors: 'all',
       issuerVendors: 'all',
       verifierVendors: 'all'
+    },
+    '2021-03-15-svip-vaxcert': {
+      walletVendors: 'all',
+      issuerVendors: 'all',
+      verifierVendors: 'all'
     }
   }
 };

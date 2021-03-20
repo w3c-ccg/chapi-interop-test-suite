@@ -13,7 +13,9 @@ module.exports = {
     api: walletApi,
     meta: {
       name: 'Veres Wallet',
-      supportedFlows: ['2020-05-07-dhs-prc', '2020-05-07-dhs-cmtr']
+      supportedFlows: [
+        '2020-05-07-dhs-prc', '2020-05-07-dhs-cmtr', '2021-03-15-svip-vaxcert'
+      ]
     }
   },
   issuer: {

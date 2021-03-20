@@ -27,9 +27,13 @@ Demonstrate the issuance and verification of a Permanent Resident Card.
 
 Demonstrate the issuance and verification of a Certified Mill Test Report.
 
+### DHS SVIP Vaccination Certificate ([2021-03-15-svip-vaxcert](./docs/scenarios/2021-03-15-svip-vaxcert.md))
+
+Demonstrate the issuance and verification of a Vaccination Certificate.
+
 ## Reports
 
-Reports are generated upon new commits to the main branch. To view more click [here](./docs/reports/index.md).
+Reports are generated upon new commits to the main branch. To view more click [here](./docs/reports/index.html).
 
 ## Running Locally
 ```sh
